@@ -3,7 +3,7 @@ import {
   AuthContext,
   IAuthContext,
   SetAuthContext,
-} from "../../adaptors/auth/authContext";
+} from "../context/auth/authContext";
 
 export function getAuthProviders() {
   const AuthProviders: FC<PropsWithChildren<{}>> = ({ children }) => {

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { User } from "../../domain/User";
+import { User } from "../../../domain/User";
 
 export interface IAuthContext {
   user: User | null;
