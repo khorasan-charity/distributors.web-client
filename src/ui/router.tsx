@@ -1,6 +1,7 @@
 import { createHashRouter } from "react-router-dom";
 import BaseLayout from "./layouts/BaseLayout";
 import Login from "./pages/auth/Login";
+import PrivateRoute from "./components/auth/PrivateRoute";
 
 const router = createHashRouter([
   {
@@ -9,15 +10,27 @@ const router = createHashRouter([
     children: [
       {
         index: true,
-        element: <div>Main Page</div>,
+        element: (
+          <PrivateRoute>
+            <div>Main Page</div>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/about",
-        element: <div>About</div>,
+        element: (
+          <PrivateRoute>
+            <div>About</div>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/home",
-        element: <div>Home</div>,
+        element: (
+          <PrivateRoute>
+            <div>Home</div>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

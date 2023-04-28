@@ -1,10 +1,15 @@
 import { RouterProvider } from "react-router-dom";
 import router from "./ui/router";
+import { getAuthProviders } from "./application/auth/getAuthProviders";
+
+const AuthProviders = getAuthProviders();
 
 function App() {
   return (
     <div>
-      <RouterProvider router={router} />
+      <AuthProviders>
+        <RouterProvider router={router} />
+      </AuthProviders>
     </div>
   );
 }

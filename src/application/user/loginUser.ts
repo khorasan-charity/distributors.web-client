@@ -2,6 +2,7 @@ import axios from "axios";
 import { useAuth } from "../../adaptors/auth/authAdaptor";
 import { User } from "../../domain/User";
 import { useNavigate } from "react-router-dom";
+import { useSetAuthContext } from "../auth/getAuthProviders";
 
 // TODO: make a file for axios and use the exported instance
 const _axios = axios.create({
@@ -10,6 +11,7 @@ const _axios = axios.create({
 
 export function useLoginUser() {
   const navigate = useNavigate();
+  const setAuthContext = useSetAuthContext();
 
   const authService = useAuth({
     asyncFn: async (username, password) => {
@@ -28,9 +30,16 @@ export function useLoginUser() {
   ): Promise<void> => {
     const user = await authService.login(username, password);
     if (user) {
-      navigate("/", {
-        replace: true,
+      setAuthContext({
+        user,
       });
+
+      // TODO: this is not a good way for handling async set state
+      setTimeout(() => {
+        navigate("/", {
+          replace: true,
+        });
+      }, 0);
     } else {
       // TODO: error handler with notification
       return Promise.reject();

@@ -18,3 +18,8 @@ export interface AuthApiService {
   login(username: string, password: string): Promise<User>;
   logout(): Promise<void>;
 }
+
+export interface AuthContextService {
+  login(user: User): void;
+  logout(): void;
+}
