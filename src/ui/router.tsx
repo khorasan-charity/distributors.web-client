@@ -1,19 +1,11 @@
-import { Outlet, createHashRouter, useNavigate } from "react-router-dom";
-
-const Main = () => {
-  const navigate = useNavigate();
-  return (
-    <div onClick={() => navigate("/home")}>
-      Main
-      <Outlet />
-    </div>
-  );
-};
+import { createHashRouter } from "react-router-dom";
+import BaseLayout from "./layouts/BaseLayout";
+import Login from "./pages/auth/Login";
 
 const router = createHashRouter([
   {
     path: "/",
-    element: <Main />,
+    element: <BaseLayout />,
     children: [
       {
         path: "/about",
@@ -22,6 +14,10 @@ const router = createHashRouter([
       {
         path: "/home",
         element: <div>Home</div>,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
