@@ -8,6 +8,10 @@ const router = createHashRouter([
     element: <BaseLayout />,
     children: [
       {
+        index: true,
+        element: <div>Main Page</div>,
+      },
+      {
         path: "/about",
         element: <div>About</div>,
       },
