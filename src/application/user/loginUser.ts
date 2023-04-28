@@ -4,7 +4,7 @@ import { User } from "../../domain/User";
 import { useNavigate } from "react-router-dom";
 import { useSetAuthContext } from "../auth/getAuthProviders";
 
-// TODO: make a file for axios and use the exported instance
+// TODO: make a file for axios and use the exported instance (should be in adaptors layer)
 const _axios = axios.create({
   baseURL: "http://localhost:1337/api",
 });
