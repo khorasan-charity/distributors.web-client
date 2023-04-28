@@ -1,6 +1,6 @@
-import { IDonorApiService } from "../application/ports";
+import { DonorApiService } from "../application/ports";
 
-export function useDonorService(): IDonorApiService {
+export function useDonorService(): DonorApiService {
   return {
     add: async donor => {},
     update: async donor => {},
