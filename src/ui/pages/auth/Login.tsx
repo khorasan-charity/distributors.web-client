@@ -18,7 +18,7 @@ const Login = () => {
   const onSubmit = async (data: FormData) => {
     const { username, password } = data;
     if (username && password) {
-      await loginUser(username.toString(), password.toString());
+      await loginUser(username, password);
     }
   };
 
