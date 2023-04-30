@@ -23,3 +23,16 @@ export interface AuthContextService {
   login(user: User): void;
   logout(): void;
 }
+
+export interface NotificationService {
+  success(msg: string): void;
+  error(msg: string): void;
+}
+
+export interface LocalStorageService {
+  removeKey(key: string): void;
+  setString(key: string, strValue: string): void;
+  getString(key: string): string;
+  setObject<T extends object>(key: string, value: T): void;
+  getObject<T, TDefault>(key: string, defaultValue: TDefault): T | TDefault;
+}

@@ -5,9 +5,8 @@ const BaseLayout = () => {
   const authContext = useAuthContext();
 
   return (
-    <div>
+    <div className="bg-slate-800 w-full h-screen text-white">
       <Outlet />
-      <pre>{JSON.stringify(authContext, null, 2)}</pre>
     </div>
   );
 };

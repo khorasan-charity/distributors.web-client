@@ -3,6 +3,8 @@ import { useAuth } from "../../adaptors/auth/authAdaptor";
 import { User } from "../../domain/User";
 import { useNavigate } from "react-router-dom";
 import { useSetAuthContext } from "../auth/getAuthProviders";
+import { useNotification } from "../../adaptors/notification/notificationAdaptor";
+import { useLocalStorage } from "../../adaptors/storage/localStorageAdaptor";
 
 // TODO: make a file for axios and use the exported instance (should be in adaptors layer)
 const _axios = axios.create({
@@ -10,8 +12,10 @@ const _axios = axios.create({
 });
 
 export function useLoginUser() {
-  const navigate = useNavigate();
-  const setAuthContext = useSetAuthContext();
+  const navigate = useNavigate(); // Dependency injection
+  const setAuthContext = useSetAuthContext(); // Dependency injection
+  const notificationService = useNotification(); // Dependency injection
+  const storageService = useLocalStorage(); // Dependency injection
 
   const authService = useAuth({
     asyncFn: async (username, password) => {
@@ -19,6 +23,11 @@ export function useLoginUser() {
         identifier: username,
         password,
       });
+
+      if (res.status === 200) {
+        storageService.setObject("user", res.data);
+        notificationService.success("Hooray!!!");
+      }
 
       return res.data;
     },

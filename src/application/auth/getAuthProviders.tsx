@@ -4,11 +4,13 @@ import {
   IAuthContext,
   SetAuthContext,
 } from "../context/auth/authContext";
+import { useLocalStorage } from "../../adaptors/storage/localStorageAdaptor";
 
 export function getAuthProviders() {
   const AuthProviders: FC<PropsWithChildren<{}>> = ({ children }) => {
+    const storageService = useLocalStorage(); // Dependency injection
     const [context, setContext] = useState<IAuthContext>({
-      user: null,
+      user: storageService.getObject("user", null),
     });
 
     return (
