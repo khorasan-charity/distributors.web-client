@@ -17,19 +17,44 @@ const DonorForm = () => {
     validationSchema,
     initialValues: {
       firstName: "",
-      lastName: "Test",
-      nationalCode: "1234567890",
-      phoneNumber: "09155253636",
-      address: "Meshad",
+      lastName: "",
+      nationalCode: "",
+      phoneNumber: "",
+      address: "",
     },
     onSubmit: async values => {
+      console.log({ values });
       await addDonor(values);
     },
   });
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <input name="firstName" onChange={formik.handleChange} />
+      <input
+        name="firstName"
+        placeholder="firstName"
+        onChange={formik.handleChange}
+      />
+      <input
+        name="lastName"
+        placeholder="lastName"
+        onChange={formik.handleChange}
+      />
+      <input
+        name="nationalCode"
+        placeholder="nationalCode"
+        onChange={formik.handleChange}
+      />
+      <input
+        name="phoneNumber"
+        placeholder="phoneNumber"
+        onChange={formik.handleChange}
+      />
+      <input
+        name="address"
+        placeholder="address"
+        onChange={formik.handleChange}
+      />
 
       <button type="submit">Submit</button>
     </form>
