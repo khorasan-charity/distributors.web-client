@@ -1,17 +1,16 @@
 import { DonorApiService } from "../application/ports";
 import { Donor } from "../domain/Donor";
 
-export function useDonorService({
-  addAsyncFn,
-}: {
-  addAsyncFn: (donor: Donor) => Promise<Donor>;
-}): DonorApiService {
+export function useDonorService(): DonorApiService {
   return {
-    add: async donor => {
-      return addAsyncFn(donor);
+    getList: async (asyncFn: () => Promise<Donor[]>) => {
+      return asyncFn();
     },
-    update: async donor => {
-      return addAsyncFn(donor);
+    add: async (asyncFn, donor) => {
+      return asyncFn(donor);
+    },
+    update: async (asyncFn, donor) => {
+      return asyncFn(donor);
     },
     remove: async donorId => {},
   };

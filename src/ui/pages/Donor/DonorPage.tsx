@@ -1,9 +1,9 @@
-import DonorForm from "../../forms/DonorForm";
+import DonorsList from "../../components/donor/DonorsList";
 
 const DonorPage = () => {
   return (
     <div className="h-full">
-      <DonorForm />
+      <DonorsList />
     </div>
   );
 };

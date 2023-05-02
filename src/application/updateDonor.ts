@@ -6,8 +6,10 @@ import { Donor } from "../domain/Donor";
 export function useUpdateDonor() {
   const axios = useAxios();
   const notificationService = useNotification();
-  const donorService = useDonorService({
-    addAsyncFn: async donor => {
+  const donorService = useDonorService();
+
+  const updateDonor = async (donor: Donor) => {
+    await donorService.update(async donor => {
       const res = await axios.put<Donor>(`/donors/${donor.id}`, {
         data: donor,
       });
@@ -17,11 +19,7 @@ export function useUpdateDonor() {
       }
 
       return res.data;
-    },
-  });
-
-  const updateDonor = async (donor: Donor) => {
-    await donorService.update(donor);
+    }, donor);
   };
 
   return {
