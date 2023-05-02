@@ -5,6 +5,7 @@
 @layer base {
   body {
     font-family: "Vazirmatn", sans-serif;
+    @apply text-slate-700;
   }
 }
 
