@@ -33,9 +33,8 @@ const DonorForm = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={async (values: Donor, { resetForm }) => {
-        addDonor(values).then(() => {
-          resetForm();
-        });
+        await addDonor(values);
+        resetForm();
       }}
     >
       {({ errors, touched }) => (
