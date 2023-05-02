@@ -2,7 +2,7 @@ import DonorForm from "../../forms/DonorForm";
 
 const DonorPage = () => {
   return (
-    <div>
+    <div className="h-full">
       <DonorForm />
     </div>
   );
