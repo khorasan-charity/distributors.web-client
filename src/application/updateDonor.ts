@@ -8,7 +8,9 @@ export function useUpdateDonor() {
   const notificationService = useNotification();
   const donorService = useDonorService({
     addAsyncFn: async donor => {
-      const res = await axios.post<Donor>("/donors", donor);
+      const res = await axios.put<Donor>(`/donors/${donor.id}`, {
+        data: donor,
+      });
 
       if (res.status === 200) {
         notificationService.success("Donor created");

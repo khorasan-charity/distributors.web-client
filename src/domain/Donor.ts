@@ -4,4 +4,5 @@ export interface Donor {
   phoneNumber: PhoneNumber;
   nationalCode: NationalCode;
   address: string;
+  id?: Id;
 }

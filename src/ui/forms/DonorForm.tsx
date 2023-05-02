@@ -14,8 +14,8 @@ const validationSchema = yup.object().shape({
   phoneNumber: yup
     .string()
     .required("ورود این فیلد الزامی است")
-    .min(10, "تلفن همراه ۱۱ رقم می‌باشد")
-    .max(10, "تلفن همراه ۱۱ رقم می‌باشد"),
+    .min(11, "تلفن همراه ۱۱ رقم می‌باشد")
+    .max(11, "تلفن همراه ۱۱ رقم می‌باشد"),
   address: yup.string().required("ورود این فیلد الزامی است"),
 });
 
