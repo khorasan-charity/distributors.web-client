@@ -3,8 +3,8 @@ import { Donor } from "../domain/Donor";
 import { User } from "../domain/User";
 
 export interface DonorApiService {
-  add(donor: Donor): Promise<void>;
-  update(donor: Donor): Promise<void>;
+  add(donor: Donor): Promise<Donor>;
+  update(donor: Donor): Promise<Donor>;
   remove(donorId: Id): Promise<void>;
 }
 

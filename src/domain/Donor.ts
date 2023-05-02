@@ -3,4 +3,5 @@ export interface Donor {
   lastName: LastName;
   phoneNumber: PhoneNumber;
   nationalCode: NationalCode;
+  address: string;
 }
