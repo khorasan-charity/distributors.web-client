@@ -1,5 +1,11 @@
+import DonorForm from "../../forms/DonorForm";
+
 const DonorPage = () => {
-  return <div>Donor Page</div>;
+  return (
+    <div>
+      <DonorForm />
+    </div>
+  );
 };
 
 export default DonorPage;
